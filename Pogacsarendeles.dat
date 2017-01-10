@@ -1,0 +1,60 @@
+set Rendezvenyek:= Karacsony1 Karacsony2 Karacsony3 Karacsony4 Karacsony5 Karacsony6 Karacsony7 Karacsony8 Karacsony9  ;
+set Napok:= Elso Masodik Harmadik;
+
+param sospogacsa:
+			Elso	Masodik		Harmadik:=
+Karacsony1 	50		20			15
+Karacsony2 	27		13			20
+Karacsony3 	65		16			18
+Karacsony4 	18		25			56
+Karacsony5 	33		30			12
+Karacsony6 	25		21			35
+Karacsony7 	12		46			65
+Karacsony8 	13		35			21
+Karacsony9	24		12			85;
+
+
+param eladasiar:=
+Karacsony1	1690
+Karacsony2	1590
+Karacsony3	1900
+Karacsony4	1750
+Karacsony5	1640
+Karacsony6	1230
+Karacsony7	1200
+Karacsony8	1570
+Karacsony9	1490
+;
+
+param tavolsag:=
+Karacsony1	20
+Karacsony2	23
+Karacsony3	35
+Karacsony4	25
+Karacsony5	9.5
+Karacsony6	20
+Karacsony7	11
+Karacsony8	12
+Karacsony9	11
+;
+
+
+set Pogacsatulajdonsagok:= sospogi;
+param :  sulesido  egytalca  maxtalcasutonkent:=
+sospogi		20		0.5			3
+;
+
+
+set Hazhozszallitas:=  nagyauto;
+param: kapacitas		fogyasztas		uzemanyagar:=
+nagyauto	60				7				320
+;
+
+param fizetes:=990;
+
+param dolgozokszama:=2;
+
+param beszerar:=690;
+
+param elsoinditas:=7;
+param sutesekkozott:=2;

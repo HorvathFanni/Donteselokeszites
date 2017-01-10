@@ -1,0 +1,150 @@
+Problem:    Pogacsarendeles
+Rows:       30
+Columns:    35 (30 integer, 27 binary)
+Non-zeros:  261
+Status:     INTEGER OPTIMAL
+Objective:  bevetel = 44397.4 (MAXimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 egyszer_mindenhova_kell[Karacsony1]
+                                   1             1               
+     2 egyszer_mindenhova_kell[Karacsony2]
+                                   1             1               
+     3 egyszer_mindenhova_kell[Karacsony3]
+                                   1             1               
+     4 egyszer_mindenhova_kell[Karacsony4]
+                                   1             1               
+     5 egyszer_mindenhova_kell[Karacsony5]
+                                   1             1               
+     6 egyszer_mindenhova_kell[Karacsony6]
+                                   1             1               
+     7 egyszer_mindenhova_kell[Karacsony7]
+                                   1             1               
+     8 egyszer_mindenhova_kell[Karacsony8]
+                                   1             1               
+     9 egyszer_mindenhova_kell[Karacsony9]
+                                   1             1               
+    10 egy_nap_minimum_35kg[Elso]
+                                  43            35               
+    11 egy_nap_minimum_35kg[Masodik]
+                                  46            35               
+    12 egy_nap_minimum_35kg[Harmadik]
+                                  45            35               
+    13 nem_Szallithatunk_60kgnal_tobbet_naponta[Elso,nagyauto]
+                                  43                          60 
+    14 nem_Szallithatunk_60kgnal_tobbet_naponta[Masodik,nagyauto]
+                                  46                          60 
+    15 nem_Szallithatunk_60kgnal_tobbet_naponta[Harmadik,nagyauto]
+                                  45                          60 
+    16 egy_nap_max_70km_tehetunk_meg[Elso]
+                                  48                          70 
+    17 egy_nap_max_70km_tehetunk_meg[Masodik]
+                                  54                          70 
+    18 egy_nap_max_70km_tehetunk_meg[Harmadik]
+                                64.5                          70 
+    19 munkaido_kiszamitas[sospogi,Elso]
+                             45.3333            45               
+    20 munkaido_kiszamitas[sospogi,Masodik]
+                             45.3333            45               
+    21 munkaido_kiszamitas[sospogi,Harmadik]
+                                  45            45               
+    22 munkaido_korlat1[Elso]
+                                 676                         720 
+    23 munkaido_korlat1[Masodik]
+                                 720                         720 
+    24 munkaido_korlat1[Harmadik]
+                                 705                         720 
+    25 beszerarConstraint
+                                   0            -0             = 
+    26 eladasiarConstraint
+                                   0            -0             = 
+    27 munkabConstraint
+                                   0            -0             = 
+    28 szallitasikoltsegConstraint
+                                   0            -0             = 
+    29 munkaidoConstraint[sospogi]
+                                 135           135             = 
+    30 bevetel               44397.4                             
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 szallitas[Karacsony1,Elso]
+                    *              0             0             1 
+     2 szallitas[Karacsony1,Masodik]
+                    *              0             0             1 
+     3 szallitas[Karacsony1,Harmadik]
+                    *              1             0             1 
+     4 szallitas[Karacsony2,Elso]
+                    *              0             0             1 
+     5 szallitas[Karacsony2,Masodik]
+                    *              1             0             1 
+     6 szallitas[Karacsony2,Harmadik]
+                    *              0             0             1 
+     7 szallitas[Karacsony3,Elso]
+                    *              0             0             1 
+     8 szallitas[Karacsony3,Masodik]
+                    *              0             0             1 
+     9 szallitas[Karacsony3,Harmadik]
+                    *              1             0             1 
+    10 szallitas[Karacsony4,Elso]
+                    *              1             0             1 
+    11 szallitas[Karacsony4,Masodik]
+                    *              0             0             1 
+    12 szallitas[Karacsony4,Harmadik]
+                    *              0             0             1 
+    13 szallitas[Karacsony5,Elso]
+                    *              0             0             1 
+    14 szallitas[Karacsony5,Masodik]
+                    *              0             0             1 
+    15 szallitas[Karacsony5,Harmadik]
+                    *              1             0             1 
+    16 szallitas[Karacsony6,Elso]
+                    *              0             0             1 
+    17 szallitas[Karacsony6,Masodik]
+                    *              1             0             1 
+    18 szallitas[Karacsony6,Harmadik]
+                    *              0             0             1 
+    19 szallitas[Karacsony7,Elso]
+                    *              1             0             1 
+    20 szallitas[Karacsony7,Masodik]
+                    *              0             0             1 
+    21 szallitas[Karacsony7,Harmadik]
+                    *              0             0             1 
+    22 szallitas[Karacsony8,Elso]
+                    *              1             0             1 
+    23 szallitas[Karacsony8,Masodik]
+                    *              0             0             1 
+    24 szallitas[Karacsony8,Harmadik]
+                    *              0             0             1 
+    25 szallitas[Karacsony9,Elso]
+                    *              0             0             1 
+    26 szallitas[Karacsony9,Masodik]
+                    *              1             0             1 
+    27 szallitas[Karacsony9,Harmadik]
+                    *              0             0             1 
+    28 munkaido[Elso]
+                    *            676             0               
+    29 munkaido[Masodik]
+                    *            720             0               
+    30 munkaido[Harmadik]
+                    *            705             0               
+    31 beszerzesi              92460                             
+    32 eladasi                209920                             
+    33 munkaber                69333                             
+    34 szallitasikoltseg
+                              3729.6                             
+    35 munkaidoosszesen
+                             2100.33                             
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 2.27e-13 on row 29
+        max.rel.err = 1.67e-15 on row 29
+        High quality
+
+End of output
