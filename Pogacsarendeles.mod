@@ -5,10 +5,10 @@ param sospogacsa{r in Rendezvenyek, n in Napok};
 param eladasiar{r in Rendezvenyek};
 param tavolsag{ r in Rendezvenyek};
 
-set Pogacsatulajdonsagok;
-param sulesido{p in Pogacsatulajdonsagok};
-param egytalca{p in Pogacsatulajdonsagok};
-param maxtalcasutonkent{ p in Pogacsatulajdonsagok};
+set Pogacsatipusok;
+param sulesido{p in Pogacsatipusok};
+param egytalca{p in Pogacsatipusok};
+param maxtalcasutonkent{ p in Pogacsatipusok};
 
 set Hazhozszallitas;
 param kapacitas { h in Hazhozszallitas};
@@ -18,7 +18,6 @@ param uzemanyagar{ h in Hazhozszallitas};
 param beszerar;
 param fizetes;
 param dolgozokszama;
-param sules;
 
 param elsoinditas;
 param sutesekkozott;
@@ -40,6 +39,8 @@ var munkaber;
 var szallitasikoltseg;
 var munkaidoosszesen;
 
+var sutesszam {n in Napok, p in Pogacsatipusok}, integer;
+
 
 #korlatozosok
 #termek nepszerusitese
@@ -58,9 +59,16 @@ sum{r in Rendezvenyek} sospogacsa[r,n]*szallitas[r,n]<=kapacitas[h];
 s.t. egy_nap_max_70km_tehetunk_meg{n in Napok}:
 sum{r in Rendezvenyek} tavolsag[r]*szallitas[r,n] <=70;
 
+#hanysutes
+s.t. Sutesszam{n in Napok, p in Pogacsatipusok}:
+sutesszam[n,p] >= sum {r in Rendezvenyek}(sospogacsa[r,n]*szallitas[r,n])
+  /(egytalca[p]*maxtalcasutonkent[p]);
+
 #munkaido
-s.t. munkaido_kiszamitas{ p in Pogacsatulajdonsagok, n in Napok}:
- munkaido[n]>= sum {r in Rendezvenyek} (elsoinditas+sospogacsa[r,n]*szallitas[r,n]/(egytalca[p]*maxtalcasutonkent[p])*sulesido[p]+((sospogacsa[r,n]*szallitas[r,n]/(egytalca[p]*maxtalcasutonkent[p]))-1)*sutesekkozott);
+s.t. munkaido_kiszamitas{n in Napok}:
+ munkaido[n]>= elsoinditas 
+ + sum {p in Pogacsatipusok} sulesido[p] * sutesszam[n,p]
+ + sutesekkozott * (sum {p in Pogacsatipusok} sutesszam[n,p]-1);
 
 #egy nap max 12h munka
 s.t.munkaido_korlat1{n in Napok}:
@@ -83,9 +91,8 @@ munkaber=sum{n in Napok} dolgozokszama*munkaido[n]/60*fizetes;
 s.t. szallitasikoltsegConstraint:
 szallitasikoltseg=sum{r in Rendezvenyek,n in Napok, h in Hazhozszallitas} (szallitas[r,n]*tavolsag[r])*(fogyasztas[h]/100)*uzemanyagar[h];
 
-s.t. munkaidoConstraint{p in Pogacsatulajdonsagok}:
-munkaidoosszesen=sum{r in Rendezvenyek,n in Napok} ((szallitas[r,n]*sospogacsa[r,n])/(egytalca[p]*maxtalcasutonkent[p])*sulesido[p]+elsoinditas+
-(((sospogacsa[r,n]*szallitas[r,n])/(egytalca[p]*maxtalcasutonkent[p]))-1)*sutesekkozott);
+s.t. munkaidoConstraint{p in Pogacsatipusok}:
+munkaidoosszesen=sum{n in Napok} munkaido[n];
 
 #célfüggvény
 maximize bevetel:

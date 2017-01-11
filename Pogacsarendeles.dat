@@ -39,7 +39,7 @@ Karacsony9	11
 ;
 
 
-set Pogacsatulajdonsagok:= sospogi;
+set Pogacsatipusok:= sospogi;
 param :  sulesido  egytalca  maxtalcasutonkent:=
 sospogi		20		0.5			3
 ;
